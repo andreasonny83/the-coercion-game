@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/the-coercion-game/precache-manifest.36166e4e762c246a1157c5049c43531a.js"
+  "/the-coercion-game/precache-manifest.d1ce3e15fc4ad5d07011aab9c760dcf5.js"
 );
 
 workbox.clientsClaim();
