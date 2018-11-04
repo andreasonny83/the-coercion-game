@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { match } from 'react-router';
-
 // Copyright (c) 2018 AndreaSonny <andreasonny83@gmail.com> (https://github.com/andreasonny83)
 //
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
+import React, { Component } from 'react';
+import { match } from 'react-router';
+
 export interface QuestionProps<P> {
   match: match<P>;
 }

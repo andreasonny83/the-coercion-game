@@ -8,6 +8,8 @@ import { Questions } from './Questions';
 import './Homepage.css';
 
 export class Homepage extends Component {
+  onClick = () => {};
+
   render() {
     return (
       <div className="App">
@@ -15,6 +17,7 @@ export class Homepage extends Component {
           <h1>Welcome to the Coercion Game!</h1>
         </header>
         <main>
+          <button onClick={this.onClick}>Start</button>
           <Questions />
         </main>
       </div>
