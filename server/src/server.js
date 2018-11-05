@@ -5,7 +5,7 @@ import cors from 'cors';
 
 import * as Schema from './schema';
 
-const PORT = 3000;
+const PORT = 5000;
 const server = express();
 
 const schemaFunction =

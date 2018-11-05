@@ -3,24 +3,40 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 import React, { Component } from 'react';
-import { Questions } from './Questions';
+import { Question } from './connected/Question';
 
 import './Homepage.css';
+import { LevelState } from './reducers/level';
 
-export class Homepage extends Component {
-  onClick = () => {};
+interface HomepageProps {
+  level: number;
+  nextLevel(level: number): () => void;
+}
 
-  render() {
+export class Homepage extends Component<HomepageProps> {
+  public render() {
+    const currentLevel: number = this.props.level;
+
     return (
       <div className="App">
         <header className="App-header">
           <h1>Welcome to the Coercion Game!</h1>
         </header>
         <main>
-          <button onClick={this.onClick}>Start</button>
-          <Questions />
+          {!currentLevel ? (
+            <button onClick={this.onNextLevel}>Start</button>
+          ) : (
+            <React.Fragment>
+              <div>Level: {currentLevel}</div>
+              <Question id={2} />
+            </React.Fragment>
+          )}
         </main>
       </div>
     );
   }
+
+  private onNextLevel = () => {
+    this.props.nextLevel(2);
+  };
 }

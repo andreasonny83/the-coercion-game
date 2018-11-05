@@ -9,23 +9,23 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { Provider } from 'react-redux';
 import { Router } from './Router';
-// import { store } from './store';
+import { store } from './store/index';
 
 import './index.css';
 
 const client = new ApolloClient({
   uri:
     process.env.NODE_ENV === 'development'
-      ? 'http://localhost:3000/graphql'
+      ? 'http://localhost:5000/graphql'
       : 'https://494v5nxp79.lp.gql.zone/graphql',
 });
 
 ReactDOM.render(
   <BrowserRouter basename={process.env.PUBLIC_URL}>
     <ApolloProvider client={client}>
-      {/* <Provider store={store}> */}
-      <Router />
-      {/* </Provider> */}
+      <Provider store={store}>
+        <Router />
+      </Provider>
     </ApolloProvider>
   </BrowserRouter>,
   document.getElementById('root')

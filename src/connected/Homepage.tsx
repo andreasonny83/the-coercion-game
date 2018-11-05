@@ -4,15 +4,18 @@
 // https://opensource.org/licenses/MIT
 import { connect } from 'react-redux';
 import { Homepage as HomepageComponent } from '../Homepage';
+import { nextLevel } from '../actions';
+import { AppState } from '../reducers';
 
-// import { GameState } from '../store/app/types';
+const mapStateToProps = (state: AppState) => ({
+  level: state.level.currentLevel,
+});
 
-// const mapStateToProps = (state: GameState) => ({
-//   currentLevel: state.currentLevel
-// });
+const mapDispatchToProps = (dispatch: any) => ({
+  nextLevel: () => dispatch(nextLevel()),
+});
 
-// const mapDispatchToProps = (dispatch: Dispatch<Types.RootAction>) => bindActionCreators({
-//   onIncrement: countersActions.increment,
-// }, dispatch);
-
-export const Homepage = HomepageComponent;
+export const Homepage = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomepageComponent);
