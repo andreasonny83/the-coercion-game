@@ -1,0 +1,25 @@
+service: the-coercion-game-API
+
+package:
+  exclude:
+    - __test__
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  memorySize: 512
+  timeout: 4
+  versionFunctions: false # optional, default is true
+
+plugins:
+  - serverless-offline
+
+functions:
+  generate:
+    handler: handler.handler # required, handler set in AWS Lambda
+    description: GraphQL API for The Coercion Game app # optional, Description to publish to AWS
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true

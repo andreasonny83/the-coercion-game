@@ -17,7 +17,7 @@ const client = new ApolloClient({
   uri:
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:5000/graphql'
-      : 'https://494v5nxp79.lp.gql.zone/graphql',
+      : 'https://l94v8vh7rc.execute-api.us-east-1.amazonaws.com/dev/graphql',
 });
 
 ReactDOM.render(

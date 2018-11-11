@@ -4,7 +4,9 @@
   "description": "",
   "main": "./src/server.js",
   "scripts": {
-    "start": "nodemon ./src/server.js --exec babel-node -e js",
+    "start": "nodemon ./src/express.js --exec babel-node -e js",
+    "serve": "serverless offline start",
+    "deploy": "serverless deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,11 +16,14 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-latest": "^6.23.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "serverless": "^1.32.0",
+    "serverless-offline": "^3.31.2"
   },
   "dependencies": {
     "apollo-engine": "^1.0.4-evans.0",
     "apollo-server-express": "^1.2.0",
+    "aws-serverless-express": "^3.3.5",
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",

@@ -1,8 +1,10 @@
 // graphql-tools combines a schema string with resolvers.
-import axios from 'axios';
-import { makeExecutableSchema } from 'graphql-tools';
-import { questionsData } from './questionsData';
-const API_URL = 'https://raw.githubusercontent.com/andreasonny83/the-coercion-game/master/server/src';
+const axios = require('axios');
+const { makeExecutableSchema } = require('graphql-tools');
+const { questionsData } = require('./questionsData');
+
+const API_URL =
+  'https://raw.githubusercontent.com/andreasonny83/the-coercion-game/master/server/src';
 
 // Construct a schema, using GraphQL schema language
 const typeDefs = `
@@ -25,9 +27,7 @@ const typeDefs = `
 `;
 
 const getQuestion = async (root, { id }) => {
-  const res = await axios.get(
-    `${API_URL}/questionsData.json`
-  );
+  const res = await axios.get(`${API_URL}/questionsData.json`);
 
   return res.data.filter(question => question.id === id)[0];
 };
@@ -43,7 +43,9 @@ const resolvers = {
 };
 
 // Required: Export the GraphQL.js schema object as "schema"
-export const schema = makeExecutableSchema({
+const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
 });
+
+module.exports.schema = schema;

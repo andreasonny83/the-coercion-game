@@ -1,12 +1,12 @@
-import express from 'express';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 
-import * as Schema from './schema';
+const Schema = require('./schema');
 
-const PORT = 5000;
-const server = express();
+const app = express();
+app.use(cors());
 
 const schemaFunction =
   Schema.schemaFunction ||
@@ -14,11 +14,13 @@ const schemaFunction =
     return Schema.schema;
   };
 let schema;
+
 const rootFunction =
   Schema.rootFunction ||
   function() {
     return schema.rootValue;
   };
+
 const contextFunction =
   Schema.context ||
   function(headers, secrets) {
@@ -30,15 +32,14 @@ const contextFunction =
     );
   };
 
-server.use(cors());
-
-server.use(
+app.use(
   '/graphql',
   bodyParser.json(),
   graphqlExpress(async request => {
     if (!schema) {
       schema = schemaFunction(process.env);
     }
+
     // const context = await contextFunction(request.headers, process.env);
     // const rootValue = await rootFunction(request.headers, process.env);
 
@@ -51,12 +52,11 @@ server.use(
   })
 );
 
-server.use(
+app.use(
   '/graphiql',
   graphiqlExpress({
     endpointURL: '/graphql',
-    query: `# Welcome to GraphiQL
-
+    query: `
 {
   question(id: 1) {
     title
@@ -71,7 +71,4 @@ server.use(
   })
 );
 
-server.listen(PORT, () => {
-  console.log(`GraphQL Server is now running on http://localhost:${PORT}/graphql`);
-  console.log(`View GraphiQL at http://localhost:${PORT}/graphiql`);
-});
+module.exports = { app };
