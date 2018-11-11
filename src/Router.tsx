@@ -9,7 +9,7 @@ import { Homepage } from './connected/Homepage';
 import { Notfound } from './components/Notfound';
 
 export class Router extends Component {
-  render() {
+  public render() {
     return (
       <Switch>
         <Route exact path="/" component={Homepage} />

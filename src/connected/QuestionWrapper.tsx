@@ -12,10 +12,10 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  nextLevel: () => dispatch(nextLevel()),
+  nextLevel: (questionSelected: number) => dispatch(nextLevel(questionSelected)),
 });
 
 export const QuestionWrapper = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(QuestionComponent);

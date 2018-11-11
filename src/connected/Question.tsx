@@ -49,8 +49,12 @@ export const Question = ({ id }: QuestionProps) => (
     variables={{ id }}
   >
     {(res: Partial<QueryResult>) => {
-      if (res.loading) return <p>Loading...</p>;
-      if (res.error) return <p>Error :(</p>;
+      if (res.loading) {
+        return <p>Loading...</p>;
+      }
+      if (res.error) {
+        return <p>Error :(</p>;
+      }
 
       return (
         <QuestionWrapper

@@ -1,5 +1,5 @@
-import { NEXT_LEVEL } from '../constants/action-types';
-import { Action } from 'redux';
+import { Reducer } from 'redux';
+import { LevelAction, LevelActionTypes } from '../types';
 
 export interface LevelState {
   currentLevel: number;
@@ -9,12 +9,12 @@ const initialState: LevelState = {
   currentLevel: 0,
 };
 
-export const levelReducer = (state = initialState, action: Action) => {
-  switch (action.type) {
-    case NEXT_LEVEL:
+export const levelReducer: Reducer<LevelState> = (state: LevelState = initialState, action) => {
+  switch ((action as LevelAction).type) {
+    case LevelActionTypes.NEXT_LEVEL:
       return {
         ...state,
-        currentLevel: state.currentLevel += 1,
+        currentLevel: (state.currentLevel += 1),
       };
 
     default:

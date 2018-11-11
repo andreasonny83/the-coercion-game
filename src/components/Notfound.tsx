@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 
 export class Notfound extends Component {
-  render() {
+  public render() {
     return <div>Page Not Found.</div>;
   }
 }

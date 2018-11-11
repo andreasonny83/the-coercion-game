@@ -19,6 +19,6 @@
   cursor: pointer;
 }
 
-.question span.active {
+.question.active {
   background-color: aquamarine;
 }
