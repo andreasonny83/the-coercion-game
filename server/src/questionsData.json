@@ -34,5 +34,110 @@
       { "id": 4, "body": "NaN" }
     ],
     "answer": 2
+  },
+    {
+    "id": 4,
+    "level": 2,
+    "title": "Question 4",
+    "description": "[] + {}",
+    "options": [
+      { "id": 1, "body": "NaN" },
+      { "id": 2, "body": "undefined" },
+      { "id": 3, "body": "'[object Object]'" },
+      { "id": 4, "body": "Syntax Error" }
+    ],
+    "answer": 3
+  },
+  {
+    "id": 5,
+    "level": 2,
+    "title": "Question 5",
+    "description": "[] + {}",
+    "options": [
+      { "id": 1, "body": "NaN" },
+      { "id": 2, "body": "0" },
+      { "id": 3, "body": "'[object Object]'" },
+      { "id": 4, "body": "undefined" }
+    ],
+    "answer": 2
+  },
+  {
+    "id": 6,
+    "level": 2,
+    "title": "Question 6",
+    "description": "{} + {}",
+    "options": [
+      { "id": 1, "body": "'[object Objectobject Object]'" },
+      { "id": 2, "body": "1" },
+      { "id": 3, "body": "NaN" },
+      { "id": 4, "body": "[object Object][object Object]" }
+    ],
+    "answer": 3
+  },
+  {
+    "id": 7,
+    "level": 2,
+    "title": "Question 7",
+    "description": "[] + []",
+    "options": [
+      { "id": 1, "body": "'[object Objectobject Object]'" },
+      { "id": 2, "body": "0" },
+      { "id": 3, "body": "''" },
+      { "id": 4, "body": "[object Object][object Object]" }
+    ],
+    "answer": 3
+  },
+   {
+    "id": 8,
+    "level": 3,
+    "title": "Question 8",
+    "description": "[] + +[]",
+    "options": [
+      { "id": 1, "body": "NaN" },
+      { "id": 2, "body": "'0'" },
+      { "id": 3, "body": "0" },
+      { "id": 4, "body": "''" }
+    ],
+    "answer": 2
+  },
+  {
+    "id": 9,
+    "level": 3,
+    "title": "Question 9",
+    "description": "'1' > {}",
+    "options": [
+      { "id": 1, "body": "true" },
+      { "id": 2, "body": "false" },
+      { "id": 3, "body": "Syntax Error" }
+    ],
+    "answer": 2
+  },
+  {
+    "id": 10,
+    "level": 3,
+    "title": "Question 10",
+    "description": "[] == ![]",
+    "options": [
+      { "id": 1, "body": "false" },
+      { "id": 2, "body": "true" },
+      { "id": 3, "body": "Syntax Error" }
+    ],
+    "answer": 2
+  },
+  {
+    "id": 10,
+    "level": 2,
+    "title": "Question 10",
+    "description": "+[] == -''",
+    "options": [
+      { "id": 1, "body": "Syntax Error" },
+      { "id": 2, "body": "false" },
+      { "id": 3, "body": "true" }
+    ],
+    "answer": 3
   }
 ]
+
+
+
+
