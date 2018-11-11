@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/the-coercion-game/static/js/runtime~main.8622a000.js"
   },
   {
-    "revision": "af71e2fc8a4e28399c9e",
-    "url": "/the-coercion-game/static/js/main.af71e2fc.chunk.js"
+    "revision": "0ba347bff8007d7fd81f",
+    "url": "/the-coercion-game/static/js/main.0ba347bf.chunk.js"
   },
   {
     "revision": "42191f5063d741108023",
     "url": "/the-coercion-game/static/js/1.42191f50.chunk.js"
   },
   {
-    "revision": "af71e2fc8a4e28399c9e",
-    "url": "/the-coercion-game/static/css/main.671723f6.chunk.css"
+    "revision": "0ba347bff8007d7fd81f",
+    "url": "/the-coercion-game/static/css/main.be77abe4.chunk.css"
   },
   {
-    "revision": "a59f216a77f6b203e77c371dcc96894a",
+    "revision": "dc9ae1abbe6af146bdd33f8ad1154c87",
     "url": "/the-coercion-game/index.html"
   }
 ];
