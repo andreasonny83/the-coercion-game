@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 import { connect } from 'react-redux';
-import { Homepage as HomepageComponent } from '../components/Homepage';
+import { Question as QuestionComponent } from '../components/Question';
 import { nextLevel } from '../actions';
 import { AppState } from '../reducers';
 
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   nextLevel: () => dispatch(nextLevel()),
 });
 
-export const Homepage = connect(
+export const QuestionWrapper = connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomepageComponent);
+)(QuestionComponent);

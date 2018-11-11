@@ -1,0 +1,24 @@
+.Question {
+  font-size: 1.2rem;
+}
+
+.questions {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.question {
+  width: 33.3%;
+  max-width: 100px;
+  margin: 0.4em;
+  padding: 0.5em 1.25em;
+  border-radius: 4px;
+  color: #eee;
+  background-color: #4c4c4c;
+  cursor: pointer;
+}
+
+.question span.active {
+  background-color: aquamarine;
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "title": "Type coercion",
+    "description": "5 == 5",
+    "options": [
+      { "id": 1, "body": "true" },
+      { "id": 2, "body": "false" }
+    ],
+    "answer": 1
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "title": "Question 2",
+    "description": "String(123)",
+    "options": [
+      { "id": 1, "body": "'123'" },
+      { "id": 2, "body": "null" },
+      { "id": 3, "body": "123" }
+    ],
+    "answer": 1
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "title": "Question 3",
+    "description": "1 + '1'",
+    "options": [
+      { "id": 1, "body": "2" },
+      { "id": 2, "body": "11" },
+      { "id": 3, "body": "'2'" },
+      { "id": 4, "body": "NaN" }
+    ],
+    "answer": 2
+  }
+]

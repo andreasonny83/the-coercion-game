@@ -3,14 +3,13 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 import React, { Component } from 'react';
-import { Question } from './connected/Question';
+import { Question } from '../connected/Question';
 
 import './Homepage.css';
-import { LevelState } from './reducers/level';
 
 interface HomepageProps {
   level: number;
-  nextLevel(level: number): () => void;
+  nextLevel(): () => void;
 }
 
 export class Homepage extends Component<HomepageProps> {
@@ -24,19 +23,15 @@ export class Homepage extends Component<HomepageProps> {
         </header>
         <main>
           {!currentLevel ? (
-            <button onClick={this.onNextLevel}>Start</button>
+            <button onClick={this.props.nextLevel}>Start</button>
           ) : (
             <React.Fragment>
               <div>Level: {currentLevel}</div>
-              <Question id={2} />
+              <Question id={currentLevel} />
             </React.Fragment>
           )}
         </main>
       </div>
     );
   }
-
-  private onNextLevel = () => {
-    this.props.nextLevel(2);
-  };
 }

@@ -6,15 +6,13 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import { Homepage } from './connected/Homepage';
-import { Question } from './Question';
-import { Notfound } from './Notfound';
+import { Notfound } from './components/Notfound';
 
 export class Router extends Component {
   render() {
     return (
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route path="/question/:id" component={Question} />
         <Route component={Notfound} />
       </Switch>
     );

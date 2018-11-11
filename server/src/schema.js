@@ -1,57 +1,41 @@
 // graphql-tools combines a schema string with resolvers.
+import axios from 'axios';
 import { makeExecutableSchema } from 'graphql-tools';
+import { questionsData } from './questionsData';
+const API_URL = 'https://raw.githubusercontent.com/andreasonny83/the-coercion-game/master/server/src';
 
 // Construct a schema, using GraphQL schema language
-var typeDefs = `
+const typeDefs = `
     type Query {
       allQuestions: [Question]
-        question(id: Int!): Question
+      question(id: Int!): Question
     },
     type Question {
-      id: Int
-      title: String
-      options: [QuestionOption]
-      answer: Int
+      id: Int!
+      level: Int!
+      title: String!
+      description: String!
+      options: [QuestionOption]!
+      answer: Int!
     }
     type QuestionOption {
-      id: Int
-      body: String
+      id: Int!
+      body: String!
     }
 `;
 
-var questionsData = [
-  {
-    id: 10,
-    title: 'Question 1',
-    options: [
-      { id: 1, body: 'option #1' },
-      { id: 2, body: 'option #2' },
-      { id: 3, body: 'option #3' },
-    ],
-    answer: 1,
-  },
-  {
-    id: 2,
-    title: 'Question 2',
-    options: [
-      { id: 1, body: 'option #1' },
-      { id: 2, body: 'option #2' },
-      { id: 3, body: 'option #3' },
-    ],
-    answer: 3,
-  },
-];
+const getQuestion = async (root, { id }) => {
+  const res = await axios.get(
+    `${API_URL}/questionsData.json`
+  );
 
-var getQuestion = function(root, { id }) {
-  return questionsData.filter(question => question.id === id)[0];
+  return res.data.filter(question => question.id === id)[0];
 };
 
-var getAllQuestions = function() {
-  return questionsData;
-};
+const getAllQuestions = () => questionsData;
 
 // Provide resolver functions for your schema fields
-var resolvers = {
+const resolvers = {
   Query: {
     allQuestions: getAllQuestions,
     question: getQuestion,
