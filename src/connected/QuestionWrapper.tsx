@@ -4,18 +4,20 @@
 // https://opensource.org/licenses/MIT
 import { connect } from 'react-redux';
 import { Question as QuestionComponent } from '../components/Question';
-import { nextLevel } from '../actions';
+import { nextLevel, selectAnswer } from '../actions';
 import { AppState } from '../reducers';
 
 const mapStateToProps = (state: AppState) => ({
-  level: state.level.currentLevel,
+  currentLevel: state.level.currentLevel,
+  answers: state.answers,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  nextLevel: (questionSelected: number) => dispatch(nextLevel(questionSelected)),
+  nextLevel: (levelId: number) => dispatch(nextLevel(levelId)),
+  selectAnswer: (levelId: number, questionSelected: number) => dispatch(selectAnswer(levelId, questionSelected)),
 });
 
 export const QuestionWrapper = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(QuestionComponent);

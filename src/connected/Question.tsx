@@ -18,6 +18,7 @@ export interface Option {
 
 interface Data {
   question: string;
+  level: number;
   options: Option[];
   description: string;
   answer: number;
@@ -31,37 +32,41 @@ interface QueryResult {
   };
 }
 
-export const Question = ({ id }: QuestionProps) => (
-  <Query
-    query={gql`
-      query Question($id: Int!) {
-        question(id: $id) {
-          title
-          description
-          options {
-            id
-            body
+export const Question = ({ id }: QuestionProps) => {
+  return (
+    <Query
+      query={gql`
+        query Question($id: Int!) {
+          question(id: $id) {
+            title
+            level
+            description
+            options {
+              id
+              body
+            }
+            answer
           }
-          answer
         }
-      }
-    `}
-    variables={{ id }}
-  >
-    {(res: Partial<QueryResult>) => {
-      if (res.loading) {
-        return <p>Loading...</p>;
-      }
-      if (res.error) {
-        return <p>Error :(</p>;
-      }
+      `}
+      variables={{ id }}
+    >
+      {(res: Partial<QueryResult>) => {
+        if (res.loading) {
+          return <p>Loading...</p>;
+        }
+        if (res.error) {
+          return <p>Error :(</p>;
+        }
 
-      return (
-        <QuestionWrapper
-          description={res.data!.question.description}
-          options={res.data!.question.options}
-        />
-      );
-    }}
-  </Query>
-);
+        return (
+          <QuestionWrapper
+            description={res.data!.question.description}
+            level={res.data!.question.level}
+            options={res.data!.question.options}
+          />
+        );
+      }}
+    </Query>
+  );
+};

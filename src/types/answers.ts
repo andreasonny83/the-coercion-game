@@ -6,7 +6,10 @@ export enum AnswersActionTypes {
 
 export interface SelectAnswerAction extends Action {
   type: AnswersActionTypes.SELECT_ANSWER;
-  payload: number;
+  payload: {
+    level: number;
+    answer: number;
+  };
 }
 
 export type AnswersAction = SelectAnswerAction;

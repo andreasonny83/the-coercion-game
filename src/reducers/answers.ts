@@ -2,22 +2,20 @@ import { Reducer } from 'redux';
 import { AnswersAction, AnswersActionTypes } from '../types';
 
 export interface Answer {
-  levelId: number;
-  answer: number;
+  [key: number]: number;
 }
 
-export interface AnswersState {
-  answers: Answer[];
-}
+export type AnswersState = Answer;
 
-const initialState = {
-  answers: [],
-};
+const initialState = {};
 
 export const answersReducer: Reducer<AnswersState> = (state: AnswersState = initialState, action) => {
   switch ((action as AnswersAction).type) {
     case AnswersActionTypes.SELECT_ANSWER:
-      return state;
+      return {
+        ...state,
+        [action.payload.level]: action.payload.answer,
+      };
 
     default:
       return state;

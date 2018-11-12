@@ -14,7 +14,7 @@ interface HomepageProps {
 
 export class Homepage extends Component<HomepageProps> {
   public render() {
-    const currentLevel: number = this.props.level;
+    const { level, nextLevel } = this.props;
 
     return (
       <div className="App">
@@ -22,12 +22,12 @@ export class Homepage extends Component<HomepageProps> {
           <h1>Welcome to the Coercion Game!</h1>
         </header>
         <main>
-          {!currentLevel ? (
-            <button onClick={this.props.nextLevel}>Start</button>
+          {!level ? (
+            <button onClick={nextLevel}>Start</button>
           ) : (
             <React.Fragment>
-              <div>Level: {currentLevel}</div>
-              <Question id={currentLevel} />
+              <div>Level: {level}</div>
+              <Question id={level} />
             </React.Fragment>
           )}
         </main>

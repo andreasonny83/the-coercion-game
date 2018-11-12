@@ -12,3 +12,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+main {
+  font-size: 1.2rem;
+  max-width: 400px;
+  margin: 1rem auto;
+}
+
+button {
+  width: 100%;
+  margin: 2em;
+  padding: 0.6em 1.25em;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  color: #eee;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: hsla(180, 100%, 20%, 1);
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+  background-color: hsla(180, 100%, 15%, 1);
+  box-shadow: none;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+button:active {
+  background-color: hsla(180, 100%, 28%, 1);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);
+}

@@ -5,44 +5,53 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Option } from '../connected/Question';
+import { Answer } from '../reducers/answers';
+
 import './Question.css';
 
 interface QuestionProps {
   description: string;
   options: Option[];
-  level: any;
-  // isActive: any;
+  currentLevel: number;
+  level?: number;
+  answers: Answer;
   questionSelected?: number;
-  nextLevel: (questionSelected: number) => void;
+  nextLevel: (levelId: number) => void;
+  selectAnswer: (levelId: number, questionSelected: number) => any;
 }
 
 export class Question extends Component<QuestionProps> {
   public render() {
-    console.log(this.props);
-    const { description, options, nextLevel } = this.props;
-    const questionSelected = 10;
+    const { description, options, answers, currentLevel, selectAnswer } = this.props;
+    const isActive = (optionId: number) => answers[currentLevel] === optionId;
 
     return (
       <div className="Question" onClick={this.select}>
         <p>{description}</p>
         <div className="questions">
           {options.map((option: Option) => (
-            <div key={option.id} className={classNames('question', 'active')}>
+            <div
+              key={option.id}
+              className={classNames('question', isActive(option.id) && 'active')}
+              onClick={() => selectAnswer(currentLevel, option.id)}
+            >
               {option.body}
             </div>
           ))}
+
+          <button disabled={!answers[currentLevel]} onClick={this.nextLevel}>
+            Next
+          </button>
         </div>
-        <button onClick={this.nextLevel}>Next</button>
       </div>
     );
   }
 
   public nextLevel = () => {
-    console.log('current level', this.props.level);
     this.props.nextLevel(10);
-  }
+  };
 
   public select = () => {
     // Allo!
-  }
+  };
 }
